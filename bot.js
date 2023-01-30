@@ -75,8 +75,8 @@ https://t.me/${bot.botInfo.username.toLowerCase()}`;
         default:
         if (!body) return 
         client.sendChatAction(chatId, "typing");
-        chatbot[userId].push(`Human: [${new Date()]: ${body}`)
-        chatbot[userId].push(`Ai: [${new Date()]:`)
+        chatbot[userId].push(`Human: [${new Date()}]: ${body}`)
+        chatbot[userId].push(`Ai: [${new Date()}]:`)
 try {
 const response = await openai.createCompletion({
           model: "text-davinci-003",
