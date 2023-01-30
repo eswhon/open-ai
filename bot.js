@@ -5,6 +5,7 @@ const configuration = new Configuration({
 apiKey: setting.OPENAI_APIKEY,
 });
 const openai = new OpenAIApi(configuration);
+const mtz = require("moment-timezone");
 const bot = new Telegraf(BOT_TOKEN);
 const client = bot.telegram;
 chatbot = {};
@@ -31,7 +32,7 @@ bot.on('message', async (ctx) => {
     let args = body.split(" ").slice(1);
     let command = body.split(" ")[0].toLowerCase();
     if (!global.chatbot[userId]) {
-    chatbot[userId] = [`Ai: [${new Date()}]: Aku Adalah Chatbot Yang Di Ciptakan oleh Caliph Dev!`];
+    chatbot[userId] = [`Ai: [${mtz.tz("Asia/Jakarta").locale("id").format("dddd, DD MMMM YYYY, HH:mm:ss")}]: Aku Adalah Chatbot Yang Di Ciptakan oleh Caliph Dev!`];
     }
 
     switch (command) {
@@ -75,8 +76,8 @@ https://t.me/${bot.botInfo.username.toLowerCase()}`;
         default:
         if (!body) return 
         client.sendChatAction(chatId, "typing");
-        chatbot[userId].push(`Human: [${new Date()}]: ${body}`)
-        chatbot[userId].push(`Ai: [${new Date()}]:`)
+        chatbot[userId].push(`Human: [${mtz.tz("Asia/Jakarta").locale("id").format("dddd, DD MMMM YYYY, HH:mm:ss")}]: ${body}`)
+        chatbot[userId].push(`Ai: [${mtz.tz("Asia/Jakarta").locale("id").format("dddd, DD MMMM YYYY, HH:mm:ss")}]:`)
 try {
 const response = await openai.createCompletion({
           model: "text-davinci-003",
