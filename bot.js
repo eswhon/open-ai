@@ -31,7 +31,7 @@ bot.on('message', async (ctx) => {
     let args = body.split(" ").slice(1);
     let command = body.split(" ")[0].toLowerCase();
     if (!global.chatbot[userId]) {
-    chatbot[userId] = [`Ai: [${new Date().toLocaleString("EN-us")}]: Aku Adalah Chatbot Yang Di Ciptakan oleh Caliph Dev!`];
+    chatbot[userId] = [`Ai: [${new Date()}]: Aku Adalah Chatbot Yang Di Ciptakan oleh Caliph Dev!`];
     }
 
     switch (command) {
@@ -75,8 +75,8 @@ https://t.me/${bot.botInfo.username.toLowerCase()}`;
         default:
         if (!body) return 
         client.sendChatAction(chatId, "typing");
-        chatbot[userId].push(`Human: [${new Date().toLocaleString("EN-us")}]: ${body}`)
-        chatbot[userId].push(`Ai: [${new Date().toLocaleString("EN-us")}]:`)
+        chatbot[userId].push(`Human: [${new Date()]: ${body}`)
+        chatbot[userId].push(`Ai: [${new Date()]:`)
 try {
 const response = await openai.createCompletion({
           model: "text-davinci-003",
